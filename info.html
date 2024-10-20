@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню</title>
+    <link href="style.css" rel="stylesheet" title="Menu Style">
+</head>
+<body>
+    <!-- Центрована навігація зверху -->
+    <div style="text-align: center; top: 0; width: 100%; background-color: #f2f2f2; padding: 10px; z-index: 1000;">
+        <nav id="main-nav">
+            <a href="menu.html" id="menu-link" title="Перейти до меню" style="font-size: 24px;">Меню</a>
+            |
+            <a href="info.html" id="info-link" title="Перейти до Інформація про підприємство TechGear" style="font-size: 24px;">Інформація про підприємство "TechGear"</a>
+            |
+            <a href="form.html" id="product-link" title="Перейти до продуктів Techgear" style="font-size: 24px;">Введення інформації про товари фірми</a>
+            |
+            <a href="HTMLPage2.html" style="font-size: 24px;">Продукція Фірми</a>
+            |
+            <a href="HTMLPage3.html" style="font-size: 24px;">Новини TechGear</a>
+        </nav>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <!-- Список меню -->
+        <menu style="font-size: 18px;" title="Навігація" type="context">
+            <menuitem dir="ltr" style="background-color: lightgray;" class="menu-item">
+                <a href="info.html" id="info-page" title="Перейти до інформаційної сторінки" target="_self" tabindex="1" accesskey="I">Інформація про фірму</a>
+            </menuitem>
+            <menuitem dir="ltr" style="background-color: lightgray;" class="menu-item">
+                <a href="#contacts" id="contact-page" title="Перейти до контактної інформації" target="_self" tabindex="2" accesskey="C">Контакти</a>
+            </menuitem>
+        </menu>
+        <h2>Про нас</h2>
+        <p><bdi id="company-name">TechGear</bdi> – провідна компанія у сфері технологій, що спеціалізується на розробці та впровадженні інноваційних рішень у галузі електроніки та мобільних пристроїв. Заснована у 2010 році, наша компанія швидко здобула репутацію за високий рівень якості продукції та передові технології.</p>
+
+        <h2>Наша місія</h2>
+        <p>Наша місія – зробити технології доступними для всіх, покращуючи щоденне життя наших клієнтів. Ми прагнемо забезпечити наших користувачів найсучаснішими продуктами та рішеннями, які відповідають найвищим стандартам якості та інновацій.</p>
+
+        <h2 id="contacts">Контакти</h2>
+        <p>Якщо у вас є питання або вам потрібна допомога, будь ласка, зв'яжіться з нами через наші контактні канали:</p>
+        <ul>
+            <li><strong>Електронна пошта:</strong> <a href="mailto:support@techgear.com">support@techgear.com</a></li>
+            <li><strong>Телефон:</strong> +123 456 7890</li>
+            <li><strong>Адреса:</strong> вул. Інноваційна, 15, Київ, Україна</li>
+        </ul>
+    </div>
+
+    <!-- Секція для пошуку інформації -->
+    <div style="margin: 20px auto; text-align: center;">
+        <h2>Пошук інформації</h2>
+        <form>
+            <textarea id="textInput" rows="4" cols="50" placeholder="Введіть текст тут"></textarea>
+            <button type="button" onclick="analyzeText()">Пошук інформації</button>
+        </form>
+        <p id="results"></p>
+    </div>
+
+    <script>
+        function analyzeText() {
+            const text = document.getElementById("textInput").value.trim();
+
+            // Перевірка на порожній текст
+            if (!text) {
+                document.getElementById("results").innerHTML = "Будь ласка, введіть текст.";
+                return;
+            }
+
+            // Кількість слів (включаючи українські)
+            const words = text.match(/[а-яА-ЯіІєЄ]+/g);
+            const wordCount = words ? words.length : 0;
+
+            // Кількість цифр
+            const digits = text.match(/\d/g);
+            const digitCount = digits ? digits.length : 0;
+
+            // Кількість цілих чисел
+            const integers = text.match(/\b\d+\b/g);
+            const integerCount = integers ? integers.length : 0;
+
+            // Пошук слів, що починаються на 'е' і закінчуються на 'а'
+            const wordsArray = text.split(/\s+/); // Розділити текст на слова
+            const foundWords = [];
+
+            wordsArray.forEach(word => {
+                // Видалення небажаних символів (пунктуації)
+                const cleanedWord = word.replace(/[.,!?;]/g, '');
+                // Перевірка, чи слово починається на 'е' і закінчується на 'а'
+                if (cleanedWord.startsWith('е') && cleanedWord.endsWith('а')) {
+                    foundWords.push(cleanedWord);
+                }
+            });
+
+            // Вивід знайдених слів
+            const foundWordsOutput = foundWords.length > 0 ? foundWords.join(', ') : 'Слів не знайдено.';
+
+            // Вивід результатів
+            const results = `
+                Кількість слів: ${wordCount}<br>
+                Кількість цифр: ${digitCount}<br>
+                Кількість цілих чисел: ${integerCount}<br>
+                Слова, що починаються на 'е' і закінчуються на 'а': ${foundWordsOutput}
+            `;
+
+            document.getElementById("results").innerHTML = results;
+        }
+    </script>
+</body>
+</html>

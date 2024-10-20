@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню</title>
+    <link href="style.css" rel="stylesheet" title="Menu Style">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        fieldset {
+            border: 2px solid #007BFF;
+            padding: 20px;
+            margin-bottom: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        legend {
+            font-weight: bold;
+        }
+        .form-group {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 15px;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        label {
+            width: 150px;
+            text-align: left; 
+            padding-right: 10px;
+        }
+
+        input[type="text"], input[type="number"], input[type="email"], input[type="date"], textarea, select {
+            width: 100%;
+            box-sizing: border-box;
+            max-width: 300px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+     <!-- Центрована навігація зверху -->
+     <div style="text-align: center; top: 0; width: 100%; background-color: #f2f2f2; padding: 10px; z-index: 1000;">
+        <nav id="main-nav">
+            <a href="menu.html" id="menu-link" title="Перейти до меню" style="font-size: 24px;">Меню</a>
+            |
+           <a href="info.html" id="info-link" title="Перейти до Інформація про підприємство TechGear" style="font-size: 24px;">Інформація про підприємство "TechGear"</a>
+           |
+           <a href="form.html" id="product-link" title="Перейти до продуктів Techgear" style="font-size: 24px;">Введення інформації про товари фірми</a>
+           |
+           <a href="HTMLPage2.html" style="font-size: 24px;">Продукція Фірми</a>
+           |
+           <a href="HTMLPage3.html" style="font-size: 24px;"> Новини TechGear</a>
+        </nav>
+    </div>
+
+    <h1 style="text-align: center;">Введення інформації про товари фірми</h1>
+
+    <fieldset>
+        <legend>Основна інформація</legend>
+    
+        <div class="form-group">
+            <label for="productName">Назва товару:</label>
+            <input type="text" id="productName" name="productName" required maxlength="100" autofocus>
+        </div>
+
+        <div class="form-group">
+            <label for="productDescription">Опис товару:</label>
+            <textarea id="productDescription" name="productDescription" required rows="3" cols="50" maxlength="500"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="productCategory">Категорія товару:</label>
+            <select id="productCategory" name="productCategory" required>
+                <optgroup label="Електроніка">
+                    <option value="smartphones">Смартфони</option>
+                    <option value="laptops">Ноутбуки</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="productPrice">Ціна товару (в грн):</label>
+            <input type="number" id="productPrice" name="productPrice" min="0" step="0.01" required>
+        </div>
+
+        <div class="form-group">
+            <label for="inStock">В наявності:</label>
+            <input type="checkbox" id="inStock" name="inStock" value="yes" checked>
+        </div>
+    </fieldset>
+    
+    <fieldset>
+        <legend>Додаткова інформація</legend>
+    
+        <div class="form-group">
+            <label for="contactEmail">Контактний e-mail:</label>
+            <input type="email" id="contactEmail" name="contactEmail" required>
+        </div>
+
+        <div class="form-group">
+            <label for="launchDate">Дата запуску:</label>
+            <input type="date" id="launchDate" name="launchDate" required>
+        </div>
+
+        <div class="form-group">
+            <label for="productWarranty">Гарантія (в місяцях):</label>
+            <input type="number" id="productWarranty" name="productWarranty" min="0" max="60" required>
+        </div>
+    </fieldset>
+    
+    <input type="button" value="Відправити інформацію" onclick="handleSubmit()" style="display: block; margin: 0 auto;"/>
+    <input type="button" value="Отримати інформацію про сторінку" onclick="runTask()" style="display: block; margin: 0 auto;"/>
+
+    <script>
+        function handleSubmit() {
+            let productName = document.getElementById('productName').value;
+            let productPrice = document.getElementById('productPrice').value;
+
+            if (productName.trim() === "") {
+                alert("Будь ласка, введіть назву товару.");
+                return; 
+            }
+
+            if (productPrice <= 0) {
+                alert("Ціна товару повинна бути більше 0.");
+                return;
+            }
+
+            alert("Дані введені коректно!");
+        }
+
+        function runTask() {
+            let pageTitle = document.title;
+            let pageURL = window.location.href;
+            alert("Назва сторінки: " + pageTitle + "\nURL сторінки: " + pageURL);
+        }
+    </script>
+
+</body>
+</html>

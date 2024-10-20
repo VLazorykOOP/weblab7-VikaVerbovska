@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: darkblue;
+}
+
+ul.styled {
+    list-style-type: square;
+}
+
+.menu-item {
+    padding: 10px;
+    margin: 5px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+
+a {
+    text-decoration: none !important;
+    color: blue !important;
+}
+
+a:hover {
+    color: darkblue;
+    text-decoration: underline;
+}
+
+.marquee {
+    background-color: yellow;
+    padding: 5px;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 2px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+.colored {
+    background-color: lightgray;
+}
+
+#productTable {
+    background-color: #f9f9f9;
+}

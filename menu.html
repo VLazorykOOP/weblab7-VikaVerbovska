@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Інформація про фірму та обробка подій</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<script>
+    function pageLoaded() {
+        alert('Сторінка повністю завантажена!');
+    }
+
+    function beforeUnload() {
+        alert('Користувач залишив сторінку!');
+    }
+
+    function afterPrint() {
+        alert('Документ надруковано!');
+    }
+
+    function beforePrint() {
+        alert('Документ буде надруковано!');
+    }
+
+    function pageHidden() {
+        alert('Сторінка прихована!');
+    }
+
+    function pageShown() {
+        alert('Сторінка знову відображається!');
+    }
+
+    function windowResized() {
+        alert('Розміри вікна змінено!');
+    }
+</script>
+</head>
+<body 
+onload="pageLoaded()" 
+onunload="beforeUnload()"
+onafterprint="afterPrint()"
+onbeforeprint="beforePrint()"
+onpagehide="pageHidden()"
+onpageshow="pageShown()"
+onresize="windowResized()"
+>
+    <!-- Центрована навігація зверху -->
+    <div style="text-align: center;  top: 0; width: 100%; background-color: #f2f2f2; padding: 10px; z-index: 1000;">
+        <nav id="main-nav">
+            <a href="menu.html" id="menu-link" title="Перейти до меню" style="font-size: 24px;">Меню</a>
+            |
+            <a href="info.html" id="info-link" title="Перейти до Інформація про підприємство TechGear" style="font-size: 24px;">Інформація про підприємство "TechGear"</a>
+            |
+            <a href="form.html" id="product-link" title="Перейти до продуктів Techgear" style="font-size: 24px;">Введення інформації про товари фірми</a>
+            |
+            <a href="HTMLPage2.html" style="font-size: 24px;">Продукція Фірми</a>
+            |
+            <a href="HTMLPage3.html" style="font-size: 24px;">Новини TechGear</a>
+        </nav>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <h1>Інформація про підприємство "TechGear"</h1>
+
+        <!-- Нумерований впорядкований список -->
+        <ol compact type="1" id="main-list" type="I">
+            <li class="important" id="li1" title="Перша перевага">Інновації</li>
+            <li class="important" id="li2" title="Друга перевага">Якість</li>
+            <li class="important" id="li3" title="Технології">Технології</li>
+        </ol>
+
+        <!-- Маркований неупорядкований список -->
+        <ul compact class="styled" title="Наші продукти" start="2">
+            <li class="product" id="prod1" title="Продукт 1">Смарт-годинники</li>
+            <li class="product" id="prod2" title="Продукт 2">Мобільні телефони</li>
+            <li class="product" id="prod3" title="Продукт 3">Лаптопи</li>
+        </ul>
+
+        <!-- Список визначень -->
+        <dl title="Ключові терміни" style="font-style: italic;">
+            <dt>Інновації</dt>
+            <dd title="Опис терміну" class="term">Впровадження нових ідей та технологій.</dd>
+            <dt>Якість</dt>
+            <dd title="Опис терміну" class="term">Високий стандарт виготовлення продукції.</dd>
+        </dl>
+    </div>
+
+    <!-- Маркірування новин -->
+    <marquee truespeed="true" id="news-marquee" class="news" vspace="10" style="color: red;">Вітаємо на нашому сайті!</marquee>
+
+
+</body>
+</html>
