@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>Новини TechGear</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .highlight {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <div style="text-align: center; top: 0; width: 100%; background-color: #f2f2f2; padding: 10px; z-index: 1000;">
@@ -21,7 +26,10 @@
     </div>
 
     <hr color="#0095b6" size="2" noshade>
-    <h1>Новини TechGear</h1>
+    
+    <!-- Додаємо події для h1 -->
+    <h1 onclick="alert('Вітаємо на сторінці новин TechGear!')" ondblclick="alert('Подвійний клік по заголовку!')">Новини TechGear</h1>
+
     <p>Вітаємо на офіційній сторінці новин компанії TechGear <sup lang="uk"></sup></p>
 
     <section>
@@ -30,16 +38,20 @@
             <p><strong>Дата:</strong> 24 серпня 2024</p>
             <p><bdo dir="rtl">TechGear з гордістю оголошує про запуск нової лінії інноваційних гаджетів, які обіцяють змінити спосіб, яким ви взаємодієте з технологіями. Наші новинки включають розумні годинники з розширеними функціями здоров'я та новітні бездротові навушники з покращеною якістю звуку.</bdo></p>
 
-            <img src="https://i.moyo.ua/img/smart_filters/pp_pnjV9Z_image_1697696817.jpg" alt="Інноваційні гаджети" width="150px" vspace="10" id="new-gadgets" class="news-img">
-            <img src="https://galaxystore.com.ua/content/images/44/64559713233056.jpeg" alt="Інноваційні гаджети" width="150px" vspace="10" id="new-gadgets" class="news-img">
+            <!-- Додаємо події для зображень -->
+            <img src="https://i.moyo.ua/img/smart_filters/pp_pnjV9Z_image_1697696817.jpg" alt="Інноваційні гаджети" width="150px" vspace="10" id="new-gadgets" class="news-img" onmouseover="alert('Показано інноваційні гаджети!')">
+            <img src="https://galaxystore.com.ua/content/images/44/64559713233056.jpeg" alt="Інноваційні гаджети" width="150px" vspace="10" id="new-gadgets" class="news-img" onmouseover="alert('Ще одне зображення гаджетів!')">
+            
             <map name="gadgets-map" tabindex="0">
                 <area shape="rect" coords="34,44,270,350" href="gadgets.html" lang="uk" title="Детальніше про гаджети">
             </map>
         </article>
+
+        <!-- Додаємо події для тексту <b> -->
         <article class="news-article" style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
             <h2>TechGear здобула нагороду за найкращий дизайн</h2>
             <p><strong>Дата:</strong> 20 серпня 2024</p>
-            <p>На щорічній виставці інновацій TechGear отримала нагороду за найкращий дизайн у категорії споживчої електроніки. Наша команда дизайнерів продемонструвала надзвичайну креативність та інноваційний підхід, що дозволило нам виділитися серед конкурентів.</p>
+            <p onmouseover="this.classList.add('highlight')" onmouseout="this.classList.remove('highlight')">На щорічній виставці інновацій TechGear отримала нагороду за найкращий дизайн у категорії споживчої електроніки. Наша команда дизайнерів продемонструвала надзвичайну креативність та інноваційний підхід, що дозволило нам виділитися серед конкурентів.</p>
             <del lang="uk" style="color: red;" id="design-award">Стара інформація про нагороду</del>
             <ins datetime="2024-08-20" lang="uk">Новини про нагороду</ins>
         </article>
@@ -48,6 +60,7 @@
             <h2>Новий офіс TechGear відкрито в Києві</h2>
             <p><strong>Дата:</strong> 15 серпня 2024</p>
             <p>TechGear з радістю повідомляє про відкриття нового офісу в Києві. Це важливий крок у розширенні нашої присутності в Україні та забезпеченні кращої підтримки наших клієнтів і партнерів у цьому регіоні.</p>
+            <!-- Подія для перетягування -->
             <div id="office-info" style="background-color: #FFFFFF; padding: 10px;" ondragover="alert('Перетягування триває!');">
                 <span id="office-address" title="Адреса нового офісу">Адреса: вул. Інноваційна, 12, Київ</span>
                 <wbr> - Не пропустіть відкриття!
