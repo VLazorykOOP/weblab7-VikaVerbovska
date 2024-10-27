@@ -34,6 +34,9 @@
     function windowResized() {
         alert('Розміри вікна змінено!');
     }
+    function onClick() {
+        alert('Натиснуто');
+    }
 </script>
 </head>
 <body 
@@ -44,21 +47,24 @@ onbeforeprint="beforePrint()"
 onpagehide="pageHidden()"
 onpageshow="pageShown()"
 onresize="windowResized()"
+
 >
-    <!-- Центрована навігація зверху -->
-    <div style="text-align: center;  top: 0; width: 100%; background-color: #f2f2f2; padding: 10px; z-index: 1000;">
-        <nav id="main-nav">
-            <a href="menu.html" id="menu-link" title="Перейти до меню" style="font-size: 24px;">Меню</a>
-            |
-            <a href="info.html" id="info-link" title="Перейти до Інформація про підприємство TechGear" style="font-size: 24px;">Інформація про підприємство "TechGear"</a>
-            |
-            <a href="form.html" id="product-link" title="Перейти до продуктів Techgear" style="font-size: 24px;">Введення інформації про товари фірми</a>
-            |
-            <a href="HTMLPage2.html" style="font-size: 24px;">Продукція Фірми</a>
-            |
-            <a href="HTMLPage3.html" style="font-size: 24px;">Новини TechGear</a>
-        </nav>
-    </div>
+   <!-- Центрована навігація зверху -->
+   <div style="text-align: center; top: 0; width: 100%; background-color: #f2f2f2; padding: 10px; z-index: 1000;">
+    <nav id="main-nav">
+        <a href="menu.html" id="menu-link" title="Перейти до меню" style="font-size: 24px;">Меню</a>
+        |
+        <a href="info.html" id="info-link" title="Перейти до Інформація про підприємство TechGear" style="font-size: 24px;">Інформація про підприємство "TechGear"</a>
+        |
+        <a href="form.html" id="product-link" title="Перейти до продуктів Techgear" style="font-size: 24px;">Введення інформації про товари фірми</a>
+        |
+        <a href="HTMLPage2.html" style="font-size: 24px;">Продукція Фірми</a>
+        |
+        <a href="HTMLPage3.html" style="font-size: 24px;">Новини TechGear</a>
+        |
+        <a href="video.html" style="font-size: 24px;">Контент</a>
+    </nav>
+</div>
 
     <div style="margin-top: 20px;">
         <h1>Інформація про підприємство "TechGear"</h1>
@@ -79,7 +85,7 @@ onresize="windowResized()"
 
         <!-- Список визначень -->
         <dl title="Ключові терміни" style="font-style: italic;">
-            <dt>Інновації</dt>
+            <dt onClick="alert('Подія');">Інновації </dt>
             <dd title="Опис терміну" class="term">Впровадження нових ідей та технологій.</dd>
             <dt>Якість</dt>
             <dd title="Опис терміну" class="term">Високий стандарт виготовлення продукції.</dd>
